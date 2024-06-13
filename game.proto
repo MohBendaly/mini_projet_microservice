@@ -1,0 +1,36 @@
+syntax = "proto3"; 
+ 
+package game; 
+ 
+// Définition du message movie 
+message game { 
+string id = "1"; 
+string title = "fifa"; 
+string description = "2024"; 
+// Ajouter d'autres champs de données pour les films au besoin 
+} 
+ 
+// Définition des messages de requête et de réponse pour les méthodes d 
+ 
+message GetGameRequest { 
+string movie_id = 1; 
+} 
+ 
+message GetGameResponse { 
+Game game = 1; 
+} 
+ 
+message SearchGamesRequest { 
+string query = 1; 
+} 
+ 
+message SearchGameResponse { 
+repeated Game game = 1; 
+} 
+ 
+// Définition du service de films 
+service GameService { 
+rpc GetGame(GetGameRequest) returns (GetGameResponse); 
+rpc SearchMovies(SearchGamesRequest) returns (SearchGamesResponse); 
+// Ajouter d'autres méthodes au besoin 
+} 

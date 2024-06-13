@@ -1,0 +1,31 @@
+syntax="proto3";
+package series;
+message series{
+int id = 1; 
+string title = "one_piece"; 
+string description = "anime"; 
+// Ajouter d'autres champs de données pour les séries TV au besoin 
+}
+ 
+message GetseriesRequest { 
+string series_id = 1; 
+} 
+ 
+message GetseriesResponse { 
+TVShow series_show = 1; 
+} 
+ 
+message SearchseriessRequest { 
+string query = 1; 
+} 
+ 
+message SearchseriesResponse { 
+repeated series series_shows = 1; 
+} 
+ 
+// Définition du service de séries TV 
+service seriesService { 
+rpc Getseries(GetseriesRequest) returns (GetseriesResponse); 
+rpc Searchseries(SearchTseriesRequest) returns (SearchseriesResponse); 
+// Ajouter d'autres méthodes au besoin 
+}
